@@ -1,0 +1,94 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 120 100% 97%; /* #F0FFF0 Honeydew (Very Light Desaturated Green) */
+    --foreground: 120 25% 20%; /* Dark Green-Gray for text */
+    --card: 120 60% 95%; /* Slightly off-white green for cards */
+    --card-foreground: 120 25% 20%; /* Same as main foreground */
+    --popover: 120 60% 95%; /* Consistent with card */
+    --popover-foreground: 120 25% 20%;
+    --primary: 120 73% 75%; /* #90EE90 Soft Green */
+    --primary-foreground: 120 100% 20%; /* Dark Green for text on primary */
+    --secondary: 120 60% 88%; /* Lighter shade of primary for secondary elements */
+    --secondary-foreground: 120 100% 20%; /* Dark Green for text on secondary */
+    --muted: 120 50% 92%; /* Muted green */
+    --muted-foreground: 120 25% 45%; /* Softer text color */
+    --accent: 90 100% 49%; /* #7CFC00 Analogous Green (Lawn Green) */
+    --accent-foreground: 90 100% 15%; /* Dark Green for text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 40% 85%; /* Greenish border */
+    --input: 120 40% 90%; /* Greenish input background */
+    --ring: 120 73% 75%; /* Primary color for rings */
+    --chart-1: 120 70% 50%;
+    --chart-2: 100 60% 45%;
+    --chart-3: 110 80% 55%;
+    --chart-4: 90 65% 60%;
+    --chart-5: 130 75% 55%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 120 80% 96%; /* Lighter green for sidebar background */
+    --sidebar-foreground: 120 25% 20%; /* Dark Green-Gray for sidebar text */
+    --sidebar-primary: 120 73% 70%; /* Slightly darker primary for sidebar emphasis */
+    --sidebar-primary-foreground: 120 100% 15%; /* Darker green for text on sidebar primary */
+    --sidebar-accent: 120 60% 90%; /* Muted green for sidebar accent */
+    --sidebar-accent-foreground: 120 25% 20%; /* Dark Green-Gray for text on sidebar accent */
+    --sidebar-border: 120 40% 88%; /* Greenish border for sidebar */
+    --sidebar-ring: 120 73% 75%; /* Primary color for sidebar rings */
+  }
+  .dark {
+    --background: 120 20% 10%; /* Dark Slate Green */
+    --foreground: 120 60% 90%; /* Light Greenish Gray */
+    --card: 120 20% 15%; /* Darker card background */
+    --card-foreground: 120 60% 90%;
+    --popover: 120 20% 12%;
+    --popover-foreground: 120 60% 90%;
+    --primary: 120 65% 65%; /* Desaturated primary for dark mode */
+    --primary-foreground: 120 100% 15%;
+    --secondary: 120 40% 30%;
+    --secondary-foreground: 120 60% 90%;
+    --muted: 120 25% 25%;
+    --muted-foreground: 120 40% 70%;
+    --accent: 90 80% 55%; /* Brighter accent for dark mode */
+    --accent-foreground: 90 100% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 20% 25%;
+    --input: 120 20% 28%;
+    --ring: 120 65% 65%;
+    --chart-1: 120 60% 60%;
+    --chart-2: 100 50% 55%;
+    --chart-3: 110 70% 65%;
+    --chart-4: 90 55% 70%;
+    --chart-5: 130 65% 65%;
+
+    --sidebar-background: 120 20% 12%; /* Dark sidebar background */
+    --sidebar-foreground: 120 60% 85%; /* Light greenish gray for sidebar text */
+    --sidebar-primary: 120 65% 60%; /* Desaturated primary for sidebar emphasis in dark mode */
+    --sidebar-primary-foreground: 120 100% 10%; /* Darker green for text on sidebar primary */
+    --sidebar-accent: 120 25% 28%; /* Darker muted green for sidebar accent */
+    --sidebar-accent-foreground: 120 60% 85%; /* Light greenish gray for text on sidebar accent */
+    --sidebar-border: 120 20% 22%; /* Dark greenish border for sidebar */
+    --sidebar-ring: 120 65% 65%; /* Primary color for sidebar rings in dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}

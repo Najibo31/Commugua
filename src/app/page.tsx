@@ -1,0 +1,22 @@
+
+import { HeroSection } from '@/components/sections/hero-section';
+import { PresentingUsSection } from '@/components/sections/presenting-us-section';
+import { HistorySection } from '@/components/sections/history-section';
+import { PrayerTimesSection } from '@/components/sections/prayer-times-section';
+import { IslamSection } from '@/components/sections/islam-section';
+import { DonationsSection } from '@/components/sections/donations-section';
+import { NewsSection } from '@/components/sections/news-section';
+
+export default function Home() {
+  return (
+    <>
+      <HeroSection id="accueil" />
+      <PresentingUsSection id="qui-sommes-nous" />
+      <HistorySection id="histoire" />
+      <PrayerTimesSection id="horaires-prieres" />
+      <IslamSection id="islam" />
+      <DonationsSection id="dons" />
+      <NewsSection id="actualites" />
+    </>
+  );
+}

@@ -1,18 +1,18 @@
 
 import { religiousEvents } from '@/lib/events-data';
-import type { NewsItem } from '@/types';
+import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CalendarDays, ArrowLeft } from 'lucide-react';
-import type { Metadata } from 'next';
 
-interface EventDetailPageProps {
+// Define Props type for better clarity if preferred, or use inline as below
+type PageProps = {
   params: { eventId: string };
-}
+};
 
-export async function generateMetadata({ params }: EventDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const event = religiousEvents.find(e => e.id === params.eventId);
   if (!event) {
     return {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: EventDetailPageProps): Promis
   };
 }
 
-export default function EventDetailPage({ params }: EventDetailPageProps) {
+export default function EventDetailPage({ params }: PageProps) {
   const event = religiousEvents.find(e => e.id === params.eventId);
 
   if (!event) {
@@ -61,11 +61,11 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
         <CardContent className="pt-6">
           {event.imageUrl && (
             <div className="relative h-64 md:h-96 w-full mb-6 rounded-lg overflow-hidden shadow-md">
-              <Image 
-                src={event.imageUrl} 
-                alt={event.title} 
-                layout="fill" 
-                objectFit="cover" 
+              <Image
+                src={event.imageUrl}
+                alt={event.title}
+                layout="fill"
+                objectFit="cover"
                 data-ai-hint={event.imageHint || "religious event detail"}
               />
             </div>
@@ -82,7 +82,6 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
   );
 }
 
-// Optionnel: Si vous souhaitez générer statiquement ces pages
 export async function generateStaticParams() {
   return religiousEvents.map(event => ({
     eventId: event.id,

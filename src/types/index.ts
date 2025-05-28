@@ -35,7 +35,8 @@ export interface NewsItem {
   title: string;
   date: string;
   summary: string;
+  fullDescription?: string; // Ajouté pour la page de détail
   imageUrl?: string;
-  link?: string;
+  link?: string; // Peut être utilisé pour des liens externes si nécessaire, sinon généré pour les pages internes
   imageHint?: string; // for data-ai-hint
 }

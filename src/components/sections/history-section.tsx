@@ -35,11 +35,11 @@ export function HistorySection({ id }: HistorySectionProps) {
             </CardContent>
           </Card>
           <div className="rounded-lg overflow-hidden shadow-lg">
-            <Image 
-              src="https://placehold.co/600x400" 
-              alt="Rassemblement communautaire historique" 
-              width={600} 
-              height={400} 
+            <Image
+              src="https://placehold.co/600x400"
+              alt="Rassemblement communautaire historique"
+              width={600}
+              height={400}
               className="w-full h-auto object-cover"
               data-ai-hint="vintage community"
             />
@@ -47,11 +47,11 @@ export function HistorySection({ id }: HistorySectionProps) {
         </div>
         <div className="grid md:grid-cols-2 gap-8 items-center mt-12">
           <div className="rounded-lg overflow-hidden shadow-lg order-last md:order-first">
-            <Image 
-              src="https://placehold.co/600x400" 
-              alt="Événement communautaire moderne" 
-              width={600} 
-              height={400} 
+            <Image
+              src="https://placehold.co/600x400"
+              alt="Événement communautaire moderne"
+              width={600}
+              height={400}
               className="w-full h-auto object-cover"
               data-ai-hint="diverse people"
             />
@@ -62,10 +62,10 @@ export function HistorySection({ id }: HistorySectionProps) {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                Avec le temps, la communauté s'est agrandie, attirant davantage de musulmans en Guadeloupe. Cette croissance a nécessité des structures plus formelles pour le culte, l'éducation et les activités sociales. Des efforts ont commencé pour établir des lieux de prière dédiés et des programmes éducatifs pour enfants et adultes.
+                Avec le temps, la communauté s'est agrandie, attirant davantage de musulmans en Guadeloupe. Au fur et à mesure de cette croissance, nous constatons que notre lieu actuel de culte ne peut plus répondre à nos besoins croissants en matière d'espace et d'activités. Cette réalité a nécessité des structures plus formelles pour le culte, l'éducation et les activités sociales.
               </p>
               <p className="text-muted-foreground">
-                L'initiative Commugua (Communauté Musulmane de la Guadeloupe) représente une étape importante dans ce parcours, visant à fournir une mosquée centrale et un centre communautaire construits à cet effet pour répondre aux besoins évolutifs de notre communauté dynamique et diversifiée.
+                L'initiative Comugua et le projet de construction de la mosquée El OUMMA représentent une étape majeure dans ce parcours. Ils visent à fournir une mosquée centrale et un centre communautaire adaptés pour répondre aux besoins évolutifs de notre communauté dynamique et diversifiée, pour les générations actuelles et futures.
               </p>
             </CardContent>
           </Card>

@@ -12,21 +12,22 @@ export function HeroSection({ id }: HeroSectionProps) {
   return (
     <section id={id} className="relative py-20 md:py-32 bg-gradient-to-b from-background to-secondary/30">
       <div className="absolute inset-0 opacity-10">
-        <Image 
-          src="https://placehold.co/1920x1080" 
-          alt="Silhouette de mosquée" 
-          layout="fill" 
-          objectFit="cover" 
+        <Image
+          src="https://i.postimg.cc/X7vRVL3w/ecriture.png"
+          alt="Arrière-plan texturé pour la section principale"
+          layout="fill"
+          objectFit="contain"
+          objectPosition="center"
           priority
-          data-ai-hint="mosque silhouette"
+          data-ai-hint="texture background"
         />
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground">
-          Bienvenue au <span className="text-primary">Projet Commugua</span>
+          Notre Projet : Mosquée <span className="text-primary">El OUMMA</span>
         </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-muted-foreground">
-          Construire un avenir meilleur pour la communauté musulmane en Guadeloupe. Découvrez notre vision, soutenez notre mission et participez à notre croissance.
+        <p className="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-muted-foreground">
+          Nous avons l'honneur de vous annoncer un projet ambitieux : la construction d'une nouvelle Mosquée en Guadeloupe, destinée à accueillir notre communauté musulmane grandissante et à servir de centre spirituel et communautaire pour toutes les générations.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-transform hover:scale-105">
@@ -45,7 +46,7 @@ export function HeroSection({ id }: HeroSectionProps) {
               <h3 className="text-xl font-semibold text-card-foreground">Notre Vision</h3>
             </div>
             <p className="text-muted-foreground text-sm">
-              Établir un centre dynamique pour le culte, l'éducation et l'engagement communautaire, favorisant l'unité et la compréhension.
+              Établir la mosquée El OUMMA, un centre islamique et communautaire exemplaire. Ce lieu sera un espace de prière, de rassemblement et de soutien spirituel, offrant également des activités éducatives et de solidarité.
             </p>
           </div>
           <div className="p-6 bg-card rounded-xl shadow-lg hover:shadow-xl transition-shadow">
@@ -54,7 +55,7 @@ export function HeroSection({ id }: HeroSectionProps) {
               <h3 className="text-xl font-semibold text-card-foreground">Focus Communautaire</h3>
             </div>
             <p className="text-muted-foreground text-sm">
-              Servir les besoins spirituels et sociaux des musulmans en Guadeloupe, et promouvoir le dialogue interreligieux.
+              Servir les besoins spirituels, éducatifs et sociaux de la communauté musulmane en Guadeloupe. Promouvoir les valeurs de paix, compassion et solidarité, et encourager le dialogue et l'engagement civique.
             </p>
           </div>
           <div className="p-6 bg-card rounded-xl shadow-lg hover:shadow-xl transition-shadow">
@@ -63,7 +64,7 @@ export function HeroSection({ id }: HeroSectionProps) {
               <h3 className="text-xl font-semibold text-card-foreground">Objectifs du Projet</h3>
             </div>
             <p className="text-muted-foreground text-sm">
-              Mener à bien le développement de la mosquée, assurant un espace durable et accueillant pour tous.
+              Mener à bien la construction de la mosquée El OUMMA : un espace de prière spacieux, des salles de classe, des espaces pour activités communautaires et des services de soutien, assurant un lieu durable et accueillant.
             </p>
           </div>
         </div>

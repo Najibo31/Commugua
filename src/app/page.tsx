@@ -12,11 +12,12 @@ export default function Home() {
     <>
       <HeroSection id="accueil" />
       <PresentingUsSection id="qui-sommes-nous" />
+      <NewsSection id="actualites" />
       <HistorySection id="histoire" />
       <PrayerTimesSection id="horaires-prieres" />
       <IslamSection id="islam" />
       <DonationsSection id="dons" />
-      <NewsSection id="actualites" />
     </>
   );
 }
+

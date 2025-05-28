@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Projet Commugua',
-  description: 'Projet de développement pour la communauté musulmane en Guadeloupe (Commugua).',
+  title: 'Projet Comugua - Mosquée El OUMMA',
+  description: 'Projet de construction de la mosquée El OUMMA pour la communauté musulmane en Guadeloupe (Comugua).',
 };
 
 export default function RootLayout({
@@ -39,3 +39,4 @@ export default function RootLayout({
     </html>
   );
 }
+

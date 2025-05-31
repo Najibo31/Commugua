@@ -17,7 +17,7 @@ export function HeroSection({ id }: HeroSectionProps) {
           alt="Arrière-plan texturé pour la section principale"
           layout="fill"
           objectFit="contain"
-          objectPosition="center"
+          objectPosition="top center" // Changé de "center" à "top center"
           priority
           data-ai-hint="texture background"
         />

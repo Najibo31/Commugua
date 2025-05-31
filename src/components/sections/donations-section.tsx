@@ -56,6 +56,9 @@ export function DonationsSection({ id }: DonationsSectionProps) {
                   <li><strong>Premier coût total estimé :</strong> Environ 620 000 € (ce montant inclut la construction, l'aménagement intérieur, l'ameublement, et les équipements nécessaires).</li>
                 </ul>
               </div>
+               <p className="text-muted-foreground text-sm mt-3">
+                  Ce projet n'est pas seulement celui de l’équipe dirigeante : il est le vôtre, celui de toute notre communauté, incluant nos frères et sœurs de la métropole qui sont un pilier de soutien. C’est grâce à la générosité de chacun que nous pourrons réaliser cette vision collective.
+                </p>
               <div>
                 <h4 className="font-semibold text-foreground mb-1 text-lg">Les avantages de soutenir ce projet :</h4>
                  <ul className="list-disc list-inside text-muted-foreground text-sm space-y-2 pl-4 mt-2">
@@ -69,9 +72,13 @@ export function DonationsSection({ id }: DonationsSectionProps) {
                         <strong>Une opportunité d'agir dans l'esprit de solidarité et de fraternité :</strong> En soutenant ce projet, vous contribuez à l'unité et à la solidarité de notre communauté, tout en bâtissant un héritage spirituel pour les générations futures.
                     </li>
                 </ul>
-                 <p className="text-muted-foreground text-sm mt-3">
-                  Chaque don, qu'il soit petit ou grand, aura un impact direct. Ce projet n'est pas seulement celui de l’équipe dirigeante : il est le vôtre, celui de toute notre communauté, incluant nos frères et sœurs de la métropole qui sont un pilier de soutien. C’est grâce à la générosité de chacun que nous pourrons réaliser cette vision collective.
-                </p>
+                <h5 className="font-medium text-foreground mt-4 mb-2 text-md">Exemples de contributions :</h5>
+                <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1 pl-4">
+                    <li><strong>50 €</strong> pour contribuer à l'achat de matériel pour la salle de prière.</li>
+                    <li><strong>100 €</strong> pour financer des équipements d'enseignement.</li>
+                    <li><strong>500 €</strong> pour soutenir l'aménagement des espaces communautaires.</li>
+                    <li><strong>1000 €</strong> ou plus pour financer la construction de l’édifice lui-même.</li>
+                </ul>
               </div>
             </CardContent>
           </Card>
@@ -81,7 +88,7 @@ export function DonationsSection({ id }: DonationsSectionProps) {
             <CardHeader>
               <CardTitle className="text-2xl text-primary flex items-center">
                 <Info className="h-6 w-6 mr-2" />
-                Notre Approche : Promesses de Dons
+                Notre Approche Actuelle : Promesses de Dons
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -100,7 +107,7 @@ export function DonationsSection({ id }: DonationsSectionProps) {
                <div>
                 <h4 className="font-semibold text-foreground mb-1 mt-3">Déductibilité fiscale :</h4>
                 <p className="text-muted-foreground text-sm">
-                  Vos dons à l'association Comugua peuvent ouvrir droit à une réduction d'impôt sur le revenu, conformément à la législation française en vigueur. Vous recevrez un reçu fiscal pour toute contribution. Pour plus d'informations, consultez : <a href="https://www.service-public.fr/particuliers/vosdroits/F426" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">service-public.fr <ExternalLink className="inline-block h-3 w-3 ml-0.5" /></a>.
+                  Vos dons à l'association Comugua peuvent ouvrir droit à une réduction d'impôt sur le revenu, conformément à la législation française en vigueur. Vous recevrez un reçu fiscal pour toute contribution (montant minimum à préciser par l'association). Pour plus d'informations, consultez : <a href="https://www.service-public.fr/particuliers/vosdroits/F426" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">service-public.fr <ExternalLink className="inline-block h-3 w-3 ml-0.5" /></a>.
                 </p>
               </div>
               <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/30">
@@ -145,7 +152,7 @@ export function DonationsSection({ id }: DonationsSectionProps) {
               Autres Façons de Contribuer & Nous Contacter
             </CardTitle>
             <CardDescription>
-              Découvrez d'autres manières de soutenir le projet El OUMMA et comment nous joindre.
+              Découvrez d'autres manières de soutenir le projet El OUMMA et comment nous joindre. Ce projet est le vôtre, celui de toute notre communauté. C’est grâce à la générosité de chacun que nous pourrons réaliser cette vision collective.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-8">
@@ -158,7 +165,7 @@ export function DonationsSection({ id }: DonationsSectionProps) {
                     Utilisez notre formulaire en ligne pour enregistrer facilement votre promesse de don.
                   </p>
                   <Button asChild className="mt-2 bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transition-transform hover:scale-105">
-                    <Link href="#" target="_blank" rel="noopener noreferrer"> {/* Lien à remplacer */}
+                    <Link href="#" target="_blank" rel="noopener noreferrer">
                       Accéder au formulaire de promesse (bientôt)
                     </Link>
                   </Button>
@@ -169,7 +176,7 @@ export function DonationsSection({ id }: DonationsSectionProps) {
                     Pour ceux qui souhaitent contribuer immédiatement de manière ponctuelle.
                   </p>
                   <Button asChild className="mt-2 bg-blue-500 hover:bg-blue-600 text-white shadow-md transition-transform hover:scale-105">
-                    <Link href="#" target="_blank" rel="noopener noreferrer"> {/* Lien à remplacer */}
+                    <Link href="#" target="_blank" rel="noopener noreferrer">
                       Faire un don via PayPal (bientôt)
                     </Link>
                   </Button>
@@ -206,13 +213,13 @@ export function DonationsSection({ id }: DonationsSectionProps) {
                  <div>
                     <h4 className="font-semibold text-foreground mb-2 flex items-center"><Gift className="mr-2 h-5 w-5 text-primary"/> Dons en Nature ou en Services :</h4>
                     <p className="text-muted-foreground text-sm">
-                        Nous accueillons également les dons en nature (matériaux de construction, équipements, etc.) ou des propositions de services (expertise professionnelle, aide pour les travaux). Veuillez nous contacter pour en discuter.
+                        Nous acceptons également des dons en nature, que ce soit sous forme de matériaux de construction (briques, ciment, peinture, etc.), ou de services (travaux de construction, expertise, gestion, etc.). Veuillez nous contacter pour en discuter.
                     </p>
                 </div>
                 <div>
                     <h4 className="font-semibold text-foreground mb-2 flex items-center"><HandHelping className="mr-2 h-5 w-5 text-primary"/> Bénévolat :</h4>
                     <p className="text-muted-foreground text-sm">
-                        Votre temps et vos compétences sont précieux ! Si vous souhaitez contribuer bénévolement à l'organisation, à la levée de fonds ou aux futures étapes du projet, faites-le nous savoir.
+                        En plus des dons financiers, nous avons besoin de bénévoles pour contribuer à l'organisation de certains événements de levée de fonds, à la gestion du projet ou à l’aide lors de la construction elle-même. Votre temps et vos compétences sont précieux ! Si vous souhaitez contribuer, faites-le nous savoir.
                     </p>
                 </div>
             </div>
@@ -232,7 +239,7 @@ export function DonationsSection({ id }: DonationsSectionProps) {
 
             <div className="mt-6 p-6 bg-secondary/30 rounded-lg border border-border text-center">
               <p className="text-lg text-foreground font-semibold">
-                Votre soutien est indispensable pour la réussite de ce projet. Chaque promesse de don, chaque promesse de soutien, contribuera à réaliser cette vision et à offrir à notre communauté un espace de culte à la hauteur de notre foi et de nos ambitions collectives. Nous pouvons bâtir un avenir spirituel solide pour les générations à venir.
+                Votre soutien est indispensable pour la réussite de ce projet. Chaque promesse de don, chaque contribution, contribuera à réaliser cette vision et à offrir à notre communauté un espace de culte à la hauteur de notre foi et de nos ambitions collectives.
               </p>
               <p className="text-muted-foreground text-sm mt-2">Nous vous remercions chaleureusement pour votre générosité et votre engagement. N'hésitez pas à parler de ce projet autour de vous et à inviter vos proches à se joindre à cet effort collectif. Que Dieu vous bénisse.</p>
             </div>

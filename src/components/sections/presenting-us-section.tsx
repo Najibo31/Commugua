@@ -86,7 +86,7 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
               <h4 className="font-semibold text-foreground mb-3 text-lg text-center">Organigramme Détaillé</h4>
               <div className="w-full max-w-md rounded-lg overflow-hidden shadow-md border border-border">
                 <Image
-                  src="https://placehold.co/600x400"
+                  src="https://i.postimg.cc/9FsgJgrV/organigramme-drawio.png"
                   alt="Organigramme de l'association Comugua (à venir)"
                   width={600}
                   height={400}

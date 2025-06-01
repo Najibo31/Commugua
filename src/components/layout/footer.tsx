@@ -1,5 +1,6 @@
 
 import { Copyright } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -12,8 +13,12 @@ export function Footer() {
         <p className="mt-2 text-xs">
           Conçu avec paix et esprit communautaire.
         </p>
+        <p className="mt-2 text-xs">
+          <Link href="/politique-de-confidentialite" className="hover:text-primary hover:underline">
+            Politique de Confidentialité
+          </Link>
+        </p>
       </div>
     </footer>
   );
 }
-

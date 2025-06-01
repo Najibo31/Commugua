@@ -4,7 +4,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
+// Removed import of PrivacyPopup
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,8 +36,8 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        {/* Removed PrivacyPopup from here */}
       </body>
     </html>
   );
 }
-

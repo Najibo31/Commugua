@@ -31,7 +31,7 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-muted-foreground">
-                Comugua rassemble des individus et des familles unis par la foi et le désir de vivre en harmonie avec les valeurs islamiques, tout en contribuant positivement à la société guadeloupéenne. Nous sommes une communauté diverse, accueillant des personnes de toutes origines.
+                L'association cultuelle COMUGUA, régie par la loi 1901, a été créée en 2021 en Guadeloupe. Elle rassemble des individus et des familles unis par la foi et le désir de vivre en harmonie avec les valeurs islamiques, tout en contribuant positivement à la société guadeloupéenne.
               </p>
               <p className="text-muted-foreground">
                 Après des années de croissance et d'engagement spirituel, nous avons pris la décision de réaliser ce projet ambitieux et d’une grande importance : la construction d’un nouveau lieu de culte qui servira de centre spirituel et communautaire pour nos fidèles et pour toutes les générations à venir.
@@ -43,15 +43,21 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
             <CardHeader>
               <div className="flex items-center mb-2">
                 <Goal className="h-8 w-8 text-primary mr-3" />
-                <CardTitle className="text-2xl text-primary">Notre Mission et Vision du Projet</CardTitle>
+                <CardTitle className="text-2xl text-primary">Nos Objectifs et Vision</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-muted-foreground">
-                <strong>Mission :</strong> Servir les besoins spirituels, éducatifs et sociaux de la communauté musulmane en Guadeloupe. Promouvoir les valeurs de l'Islam telles que la paix, la compassion et la solidarité. Favoriser le dialogue et la compréhension mutuelle au sein de la société guadeloupéenne.
-              </p>
-              <p className="text-muted-foreground">
-                <strong>Vision :</strong> Établir la mosquée El OUMMA, un centre islamique et communautaire exemplaire. Ce lieu sera un espace de prière, de rassemblement et de soutien spirituel, offrant également des activités éducatives et de solidarité pour les familles, les jeunes et les personnes âgées. Il offrira à tous une salle de prière spacieuse, des salles de classe pour l'éducation religieuse, des espaces pour des activités communautaires et des services de soutien pour les plus vulnérables.
+                <h4 className="font-semibold text-foreground text-lg">Missions de l'association :</h4>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>La construction tant attendue de la 1ère Mosquée en Guadeloupe.</li>
+                    <li>Fédérer les différentes communautés présentes sur le territoire.</li>
+                    <li>Représenter les aspirations des fidèles et défendre leurs intérêts culturels, dans le respect des lois de la République.</li>
+                    <li>Pérenniser une filière d’abattage pour la viande Hallal et pour l’Aïd el Kébir.</li>
+                    <li>Favoriser le dialogue interreligieux et interculturel pour une cohabitation fondée sur le respect mutuel.</li>
+                </ul>
+                <h4 className="font-semibold text-foreground text-lg mt-4">Vision du projet :</h4>
+                <p className="text-muted-foreground">
+                Établir la mosquée El OUMMA, un centre islamique et communautaire exemplaire. Ce lieu sera un espace de prière, de rassemblement et de soutien spirituel, offrant également des activités éducatives et de solidarité pour les familles, les jeunes et les personnes âgées.
               </p>
             </CardContent>
           </Card>
@@ -86,7 +92,7 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
               <h4 className="font-semibold text-foreground mb-3 text-lg text-center">Organigramme Détaillé</h4>
               <div className="w-full max-w-md rounded-lg overflow-hidden shadow-md border border-border">
                 <Image
-                  src="https://i.postimg.cc/9FsgJgrV/organigramme-drawio.png"
+                  src="https://placehold.co/600x400"
                   alt="Organigramme de l'association Comugua (à venir)"
                   width={600}
                   height={400}

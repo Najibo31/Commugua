@@ -13,12 +13,17 @@ export function Footer() {
         <p className="mt-2 text-xs">
           Conçu avec paix et esprit communautaire.
         </p>
-        <p className="mt-2 text-xs">
+        <div className="mt-2 text-xs space-x-4">
           <Link href="/politique-de-confidentialite" className="hover:text-primary hover:underline">
             Politique de Confidentialité
           </Link>
-        </p>
+          <Link href="/mentions-legales" className="hover:text-primary hover:underline">
+            Mentions Légales & CGU
+          </Link>
+        </div>
       </div>
     </footer>
   );
 }
+
+    

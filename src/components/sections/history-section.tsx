@@ -20,7 +20,7 @@ export function HistorySection({ id }: HistorySectionProps) {
             Retracer les racines et la croissance de la communauté musulmane en Guadeloupe.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-1 gap-8 items-center">
           <Card className="shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Les Débuts</CardTitle>
@@ -34,38 +34,16 @@ export function HistorySection({ id }: HistorySectionProps) {
               </p>
             </CardContent>
           </Card>
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src="https://placehold.co/600x400"
-              alt="Rassemblement communautaire historique"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover"
-              data-ai-hint="vintage community"
-            />
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-8 items-center mt-12">
-          <div className="rounded-lg overflow-hidden shadow-lg order-last md:order-first">
-            <Image
-              src="https://placehold.co/600x400"
-              alt="Événement communautaire moderne"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover"
-              data-ai-hint="diverse people"
-            />
-          </div>
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow mt-8">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Croissance et Développement</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                Avec le temps, la communauté s'est agrandie, attirant davantage de musulmans en Guadeloupe. Au fur et à mesure de cette croissance, nous constatons que notre lieu actuel de culte ne peut plus répondre à nos besoins croissants en matière d'espace et d'activités. Cette réalité a nécessité des structures plus formelles pour le culte, l'éducation et les activités sociales.
+                Avec le temps, la communauté s'est agrandie, attirant davantage de musulmans en Guadeloupe. Au fur et à mesure de cette croissance, nous constatons que les lieux actuels de culte (salles de prières) ne peuvent plus répondre aux besoins croissants en matière d'espace et d'activités. Cette réalité nécessite des structures plus formelles pour le culte, l'éducation et les activités sociales.
               </p>
               <p className="text-muted-foreground">
-                L'initiative Comugua et le projet de construction de la mosquée El OUMMA représentent une étape majeure dans ce parcours. Ils visent à fournir une mosquée centrale et un centre communautaire adaptés pour répondre aux besoins évolutifs de notre communauté dynamique et diversifiée, pour les générations actuelles et futures.
+                L'initiative de l’association Comugua et le projet de construction de la mosquée El OUMMA représentent une étape majeure dans ce parcours. Ils visent à fournir une mosquée centrale et un centre communautaire adaptés pour répondre aux besoins évolutifs de notre communauté dynamique et diversifiée, pour les générations actuelles et futures.
               </p>
             </CardContent>
           </Card>

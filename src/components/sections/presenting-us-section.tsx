@@ -1,13 +1,20 @@
 
-import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Users, Goal, ListTree, Building2 } from 'lucide-react';
+import { Users, Goal, ListTree, Building2, UserCheck, Shield, BookUser, Banknote, HeartHandshake, FileText, Palette, Gem } from 'lucide-react';
 
 interface PresentingUsSectionProps {
   id: string;
 }
 
 export function PresentingUsSection({ id }: PresentingUsSectionProps) {
+  const leadership = [
+    { name: 'M. Youcef GAOUAOU', title: 'TRÉSORIER', pole: 'Pôle Financement', icon: Banknote },
+    { name: 'M. Franck DUBAR', title: 'TRÉSORIER ADJOINT', pole: 'Pôle Financement', icon: Banknote },
+    { name: 'M. Abdoulaye NDOYE', title: 'VICE-PRÉSIDENT', pole: 'Pôle Social', icon: HeartHandshake },
+    { name: 'M. Pascal PETIT', title: 'SECRÉTAIRE GÉNÉRAL', pole: 'Gestion documentaire', icon: FileText },
+  ];
+  const culturalPole = { name: 'Comité Culturel', title: 'Pôle Culturel', icon: Palette };
+
   return (
     <section id={id} className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,37 +80,75 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
               L'association Comugua est structurée pour servir au mieux les besoins de la communauté et assurer la bonne gestion du projet El OUMMA.
             </CardDescription>
           </CardHeader>
-          <CardContent className="grid md:grid-cols-2 gap-8 items-start">
-            <div>
-              <h4 className="font-semibold text-foreground mb-2 text-lg">L'Équipe Dirigeante :</h4>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Abdoulaye</li>
-                <li>Tonio</li>
-                <li>Pascal</li>
-                <li>Franck</li>
-                <li>Rachid</li>
-                <li>Youssef</li>
-              </ul>
-              <p className="text-muted-foreground mt-4 text-sm">
-                Cette équipe, soutenue par de nombreux bénévoles et membres actifs, œuvre pour la concrétisation du projet et la vie de la communauté. D'autres comités spécialisés (Ex: comité de construction, comité éducatif, comité social) participent à la gestion des aspects spécifiques du projet et de la vie communautaire.
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <h4 className="font-semibold text-foreground mb-3 text-lg text-center">Organigramme Détaillé</h4>
-              <div className="w-full max-w-md rounded-lg overflow-hidden shadow-md border border-border">
-                <Image
-                  src="https://i.postimg.cc/9FsgJgrV/organigramme-drawio.png"
-                  alt="Organigramme de l'association Comugua"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                  data-ai-hint="organization chart"
-                />
+          <CardContent>
+            <div className="flex flex-col items-center text-center">
+              {/* President Card */}
+              <div className="relative mb-8">
+                <Card className="bg-gradient-to-br from-primary/20 to-card border-2 border-primary shadow-lg max-w-xs mx-auto">
+                    <CardHeader className="flex flex-col items-center">
+                        <div className="p-3 bg-primary/80 rounded-full mb-2 text-primary-foreground">
+                           <Gem className="h-8 w-8" />
+                        </div>
+                        <CardTitle className="text-xl font-bold text-primary">PRÉSIDENT</CardTitle>
+                        <p className="text-md text-foreground">M. Rachid LATRECHE</p>
+                    </CardHeader>
+                </Card>
+                 {/* Vertical line connecting to the rest of the chart */}
+                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0.5 h-8 bg-border"></div>
               </div>
-              <p className="text-muted-foreground mt-3 text-sm text-center">
-                Un organigramme visuel détaillé illustrant la structure complète de l'association Comugua sera disponible ici prochainement.
-              </p>
+            
+              {/* Horizontal line */}
+              <div className="w-full max-w-4xl h-0.5 bg-border my-8 hidden md:block"></div>
+
+              {/* Leadership Team Grid */}
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 relative">
+                {/* Horizontal line for mobile view */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-border md:hidden"></div>
+
+                {leadership.map((member, index) => (
+                  <div key={index} className="flex flex-col items-center relative">
+                    {/* Vertical connecting line */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0.5 h-8 bg-border hidden md:block"></div>
+                    {/* Horizontal connecting line for mobile */}
+                    <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full w-8 h-0.5 bg-border md:hidden"></div>
+                    <Card className="w-full max-w-xs shadow-md hover:shadow-lg transition-shadow">
+                      <CardHeader className="items-center">
+                         <div className="p-2 bg-primary/10 rounded-full mb-2 text-primary">
+                           <member.icon className="h-6 w-6" />
+                        </div>
+                        <CardTitle className="text-lg text-primary">{member.title}</CardTitle>
+                        <p className="text-sm text-muted-foreground">{member.name}</p>
+                      </CardHeader>
+                      <CardContent>
+                         <div className="relative text-center">
+                           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0.5 h-4 bg-border"></div>
+                            <p className="text-xs font-semibold text-foreground bg-muted/50 rounded-full px-3 py-1 inline-block">{member.pole}</p>
+                         </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+
+               {/* Cultural Pole */}
+              <div className="relative mt-12 md:mt-0 md:absolute md:top-1/4 md:right-0 md:transform md:translate-x-1/2 lg:translate-x-3/4">
+                 <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full w-8 h-0.5 bg-border hidden md:block"></div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0.5 h-8 bg-border md:hidden"></div>
+                 <Card className="shadow-md hover:shadow-lg transition-shadow w-full max-w-xs">
+                     <CardHeader className="items-center">
+                         <div className="p-2 bg-primary/10 rounded-full mb-2 text-primary">
+                           <culturalPole.icon className="h-6 w-6" />
+                        </div>
+                        <CardTitle className="text-lg text-primary">{culturalPole.title}</CardTitle>
+                        <p className="text-sm text-muted-foreground">{culturalPole.name}</p>
+                     </CardHeader>
+                 </Card>
+              </div>
+
             </div>
+             <p className="text-muted-foreground mt-12 text-sm text-center">
+                Cette équipe, soutenue par de nombreux bénévoles et membres actifs, œuvre pour la concrétisation du projet et la vie de la communauté. D'autres comités spécialisés participent à la gestion des aspects spécifiques du projet et de la vie communautaire.
+              </p>
           </CardContent>
         </Card>
       </div>

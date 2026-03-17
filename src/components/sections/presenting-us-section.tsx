@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Users, Goal, ListTree, Building2, UserCheck, Shield, BookUser, Banknote, HeartHandshake, FileText, Palette, Gem } from 'lucide-react';
+import { Users, Goal, ListTree, Building2, UserCheck, Shield, BookUser, Banknote, HeartHandshake, FileText, Gem } from 'lucide-react';
 
 interface PresentingUsSectionProps {
   id: string;
@@ -9,11 +9,9 @@ interface PresentingUsSectionProps {
 export function PresentingUsSection({ id }: PresentingUsSectionProps) {
   const leadership = [
     { name: 'M. Youcef GAOUAOU', title: 'TRÉSORIER', pole: 'Pôle Financement', icon: Banknote },
-    { name: 'M. Franck DUBAR', title: 'TRÉSORIER ADJOINT', pole: 'Pôle Financement', icon: Banknote },
     { name: 'M. Abdoulaye NDOYE', title: 'VICE-PRÉSIDENT', pole: 'Pôle Social', icon: HeartHandshake },
     { name: 'M. Pascal PETIT', title: 'SECRÉTAIRE GÉNÉRAL', pole: 'Gestion documentaire', icon: FileText },
   ];
-  const culturalPole = { name: 'Comité Culturel', title: 'Pôle Culturel', icon: Palette };
 
   return (
     <section id={id} className="py-16 md:py-24 bg-secondary/20">
@@ -98,13 +96,10 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
               </div>
             
               {/* Horizontal line */}
-              <div className="w-full max-w-4xl h-0.5 bg-border my-8 hidden md:block"></div>
+              <div className="w-full max-w-2xl h-0.5 bg-border my-8 hidden md:block"></div>
 
               {/* Leadership Team Grid */}
-              <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 relative">
-                {/* Horizontal line for mobile view */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-border md:hidden"></div>
-
+              <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative">
                 {leadership.map((member, index) => (
                   <div key={index} className="flex flex-col items-center relative">
                     {/* Vertical connecting line */}
@@ -128,21 +123,6 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
                     </Card>
                   </div>
                 ))}
-              </div>
-
-               {/* Cultural Pole */}
-              <div className="relative mt-12 md:mt-0 md:absolute md:top-1/4 md:right-0 md:transform md:translate-x-1/2 lg:translate-x-3/4">
-                 <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full w-8 h-0.5 bg-border hidden md:block"></div>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0.5 h-8 bg-border md:hidden"></div>
-                 <Card className="shadow-md hover:shadow-lg transition-shadow w-full max-w-xs">
-                     <CardHeader className="items-center">
-                         <div className="p-2 bg-primary/10 rounded-full mb-2 text-primary">
-                           <culturalPole.icon className="h-6 w-6" />
-                        </div>
-                        <CardTitle className="text-lg text-primary">{culturalPole.title}</CardTitle>
-                        <p className="text-sm text-muted-foreground">{culturalPole.name}</p>
-                     </CardHeader>
-                 </Card>
               </div>
 
             </div>

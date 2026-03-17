@@ -223,11 +223,15 @@ export function DonationsSection({ id }: DonationsSectionProps) {
               <h4 className="font-semibold text-foreground mb-2">Coordonnées de l'association Comugua :</h4>
               <div className="flex items-center text-muted-foreground text-sm">
                 <Mail className="mr-2 h-4 w-4 text-primary"/>
-                <a href="mailto:MosquéeGuadeloupe@Comugua.fr" className="text-primary hover:underline">MosquéeGuadeloupe@Comugua.fr</a>
+                <a href="mailto:President@comugua.fr" className="text-primary hover:underline">President@comugua.fr</a>
               </div>
                <div className="flex items-center text-muted-foreground text-sm">
                 <Mail className="mr-2 h-4 w-4 text-primary"/>
-                <a href="mailto:MosquéeGuadeloupe@comugua.com" className="text-primary hover:underline">MosquéeGuadeloupe@comugua.com</a>
+                <a href="mailto:Secretariat@comugua.fr" className="text-primary hover:underline">Secretariat@comugua.fr</a>
+              </div>
+               <div className="flex items-center text-muted-foreground text-sm">
+                <Mail className="mr-2 h-4 w-4 text-primary"/>
+                <a href="mailto:Tresorier@comugua.fr" className="text-primary hover:underline">Tresorier@comugua.fr</a>
               </div>
               <div className="flex items-center text-muted-foreground text-sm pt-2">
                  <Home className="mr-2 h-4 w-4 text-primary"/>

@@ -1,6 +1,7 @@
 
 import { HeroSection } from '@/components/sections/hero-section';
 import { PresentingUsSection } from '@/components/sections/presenting-us-section';
+import { PlansSection } from '@/components/sections/plans-section';
 import { HistorySection } from '@/components/sections/history-section';
 import { PrayerTimesSection } from '@/components/sections/prayer-times-section';
 import { IslamSection } from '@/components/sections/islam-section';
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <HeroSection id="accueil" />
       <PresentingUsSection id="qui-sommes-nous" />
+      <PlansSection id="plans" />
       <NewsSection id="actualites" />
       <HistorySection id="histoire" />
       <PrayerTimesSection id="horaires-prieres" />

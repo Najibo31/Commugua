@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, UsersRound, Newspaper, BookOpen, Clock, Info, Handshake, Moon, Sun } from 'lucide-react';
+import { Menu, X, Home, UsersRound, Newspaper, BookOpen, Clock, Info, Handshake, Moon, Sun, LayoutGrid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader } from '@/components/ui/sheet';
 import { Logo } from '@/components/logo';
@@ -11,13 +11,14 @@ import { usePathname } from 'next/navigation';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 const navItems = [
-  { href: '#accueil', label: 'Accueil', icon: Home },
-  { href: '#qui-sommes-nous', label: 'Qui Sommes-Nous ?', icon: UsersRound },
-  { href: '#actualites', label: 'Actualités', icon: Newspaper },
-  { href: '#histoire', label: 'Notre Histoire', icon: BookOpen },
-  { href: '#horaires-prieres', label: 'Prières', icon: Clock },
-  { href: '#islam', label: 'Islam', icon: Info },
-  { href: '#dons', label: 'Dons', icon: Handshake },
+  { href: '/#accueil', label: 'Accueil', icon: Home },
+  { href: '/#qui-sommes-nous', label: 'Qui Sommes-Nous ?', icon: UsersRound },
+  { href: '/plans', label: 'Plans', icon: LayoutGrid },
+  { href: '/#actualites', label: 'Actualités', icon: Newspaper },
+  { href: '/#histoire', label: 'Notre Histoire', icon: BookOpen },
+  { href: '/#horaires-prieres', label: 'Prières', icon: Clock },
+  { href: '/#islam', label: 'Islam', icon: Info },
+  { href: '/#dons', label: 'Dons', icon: Handshake },
 ];
 
 // We need to use React.forwardRef for TooltipTrigger's asChild prop to work correctly with a custom component.
@@ -58,19 +59,21 @@ export function Header() {
     setTheme(storedTheme || systemTheme);
 
     const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.href.substring(1)));
+      const sections = navItems.filter(item => item.href.includes('#')).map(item => document.getElementById(item.href.substring(item.href.indexOf('#') + 1)));
       let currentSection = '';
-      sections.forEach(section => {
+      for (const section of sections) {
         if (section && window.scrollY >= section.offsetTop - 100) {
           currentSection = `#${section.id}`;
         }
-      });
+      }
       setActiveSection(currentSection);
     };
 
     if (pathname === '/') {
       window.addEventListener('scroll', handleScroll);
       handleScroll(); // Initial check
+    } else {
+      setActiveSection(''); // Clear active section on other pages
     }
 
     return () => {
@@ -109,7 +112,10 @@ export function Header() {
         <TooltipProvider delayDuration={0}>
           <nav className="hidden md:flex items-center">
             {navItems.map((item) => {
-               const isActive = (pathname === '/' && activeSection === item.href);
+               const isHashLink = item.href.includes('#');
+               const isActive = isHashLink
+                 ? (pathname === '/' && activeSection === item.href.substring(item.href.indexOf('#')))
+                 : pathname === item.href;
                return (
                 <Tooltip key={item.label}>
                   <TooltipTrigger asChild>
@@ -149,7 +155,10 @@ export function Header() {
                 </SheetHeader>
                 <nav className="flex flex-col space-y-2 flex-grow overflow-y-auto">
                   {navItems.map((item) => {
-                    const isActive = (pathname === '/' && activeSection === item.href);
+                    const isHashLink = item.href.includes('#');
+                    const isActive = isHashLink
+                      ? (pathname === '/' && activeSection === item.href.substring(item.href.indexOf('#')))
+                      : pathname === item.href;
                     return (
                       <SheetClose key={item.label} asChild>
                          <Link 

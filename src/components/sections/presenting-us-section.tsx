@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Users, Goal, ListTree, Building2, UserCheck, Shield, BookUser, Banknote, HeartHandshake, FileText, Gem } from 'lucide-react';
+import { Users, Goal, ListTree, Building2, Shield, Banknote, FileText, Gem } from 'lucide-react';
 
 interface PresentingUsSectionProps {
   id: string;
@@ -8,9 +8,10 @@ interface PresentingUsSectionProps {
 
 export function PresentingUsSection({ id }: PresentingUsSectionProps) {
   const leadership = [
+    { name: 'M. Rachid LATRECHE', title: 'PRÉSIDENT', pole: 'Présidence', icon: Gem },
     { name: 'M. Youcef GAOUAOU', title: 'TRÉSORIER', pole: 'Pôle Financement', icon: Banknote },
-    { name: 'M. Abdoulaye NDOYE', title: 'VICE-PRÉSIDENT', pole: 'Pôle Social', icon: HeartHandshake },
     { name: 'M. Pascal PETIT', title: 'SECRÉTAIRE GÉNÉRAL', pole: 'Gestion documentaire', icon: FileText },
+    { name: 'M. Tonio TANGANEM', title: 'SACRIFICATEUR', pole: 'Pôle Rituel', icon: Shield },
   ];
 
   return (
@@ -79,54 +80,23 @@ export function PresentingUsSection({ id }: PresentingUsSectionProps) {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col items-center text-center">
-              {/* President Card */}
-              <div className="relative mb-8">
-                <Card className="bg-gradient-to-br from-primary/20 to-card border-2 border-primary shadow-lg max-w-xs mx-auto">
-                    <CardHeader className="flex flex-col items-center">
-                        <div className="p-3 bg-primary/80 rounded-full mb-2 text-primary-foreground">
-                           <Gem className="h-8 w-8" />
-                        </div>
-                        <CardTitle className="text-xl font-bold text-primary">PRÉSIDENT</CardTitle>
-                        <p className="text-md text-foreground">M. Rachid LATRECHE</p>
-                    </CardHeader>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+              {leadership.map((member, index) => (
+                <Card key={index} className="text-center shadow-md hover:shadow-lg transition-shadow flex flex-col bg-card/50">
+                  <CardHeader className="items-center pt-6">
+                    <div className="p-3 bg-primary/10 rounded-full mb-3 text-primary">
+                      <member.icon className="h-7 w-7" />
+                    </div>
+                    <CardTitle className="text-lg text-primary">{member.title}</CardTitle>
+                    <p className="text-md text-foreground font-medium">{member.name}</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex items-end justify-center pb-4">
+                    <p className="text-xs font-semibold text-foreground bg-muted/50 rounded-full px-3 py-1 inline-block">{member.pole}</p>
+                  </CardContent>
                 </Card>
-                 {/* Vertical line connecting to the rest of the chart */}
-                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0.5 h-8 bg-border"></div>
-              </div>
-            
-              {/* Horizontal line */}
-              <div className="w-full max-w-2xl h-0.5 bg-border my-8 hidden md:block"></div>
-
-              {/* Leadership Team Grid */}
-              <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative">
-                {leadership.map((member, index) => (
-                  <div key={index} className="flex flex-col items-center relative">
-                    {/* Vertical connecting line */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0.5 h-8 bg-border hidden md:block"></div>
-                    {/* Horizontal connecting line for mobile */}
-                    <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full w-8 h-0.5 bg-border md:hidden"></div>
-                    <Card className="w-full max-w-xs shadow-md hover:shadow-lg transition-shadow">
-                      <CardHeader className="items-center">
-                         <div className="p-2 bg-primary/10 rounded-full mb-2 text-primary">
-                           <member.icon className="h-6 w-6" />
-                        </div>
-                        <CardTitle className="text-lg text-primary">{member.title}</CardTitle>
-                        <p className="text-sm text-muted-foreground">{member.name}</p>
-                      </CardHeader>
-                      <CardContent>
-                         <div className="relative text-center">
-                           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0.5 h-4 bg-border"></div>
-                            <p className="text-xs font-semibold text-foreground bg-muted/50 rounded-full px-3 py-1 inline-block">{member.pole}</p>
-                         </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-
+              ))}
             </div>
-             <p className="text-muted-foreground mt-12 text-sm text-center">
+             <p className="text-muted-foreground mt-8 text-sm text-center">
                 Cette équipe, soutenue par de nombreux bénévoles et membres actifs, œuvre pour la concrétisation du projet et la vie de la communauté. D'autres comités spécialisés participent à la gestion des aspects spécifiques du projet et de la vie communautaire.
               </p>
           </CardContent>

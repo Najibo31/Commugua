@@ -1,6 +1,7 @@
 
 import { Copyright } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -19,6 +20,18 @@ export function Footer() {
           </Link>
           <Link href="/mentions-legales" className="hover:text-primary hover:underline">
             Mentions Légales & CGU
+          </Link>
+        </div>
+        <div className="mt-6 border-t pt-6">
+          <Link href="https://www.croissancedigitale.pro/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground">
+            <Image
+              src="https://i.postimg.cc/J4dnF46r/Digitale_Récupéré.png"
+              alt="Logo Croissance Digitale"
+              width={20}
+              height={20}
+              className="h-5 w-5"
+            />
+            <span>Fait par Croissance Digitale</span>
           </Link>
         </div>
       </div>

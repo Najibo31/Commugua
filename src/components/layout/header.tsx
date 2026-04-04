@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, Home, UsersRound, Newspaper, BookOpen, Clock, Info, Handshake, Moon, Sun, LayoutGrid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader } from '@/components/ui/sheet';
@@ -174,6 +175,24 @@ export function Header() {
                     );
                   })}
                 </nav>
+                 <div className="mt-auto border-t pt-4">
+                   <Link 
+                      href="https://www.croissancedigitale.pro/"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                   >
+                    <Image
+                      src="https://i.postimg.cc/J4dnF46r/Digitale_Récupéré.png"
+                      alt="Logo Croissance Digitale"
+                      width={20}
+                      height={20}
+                      className="h-5 w-5"
+                    />
+                    <span>Fait par Croissance Digitale</span>
+                  </Link>
+                </div>
               </SheetContent>
             </Sheet>
           </div>

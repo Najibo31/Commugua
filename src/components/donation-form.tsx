@@ -4,6 +4,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -28,7 +29,9 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Info } from "lucide-react";
+import { Info, Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { sendDonationPromise } from "@/ai/flows/send-donation-promise-email";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -48,6 +51,10 @@ const formSchema = z.object({
 });
 
 export function DonationForm({ children }: { children: React.ReactNode }) {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,35 +67,56 @@ export function DonationForm({ children }: { children: React.ReactNode }) {
     },
   });
 
-  // NOTE: The onSubmit function is defined but won't be triggered yet,
-  // as the form submission button is disabled.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("Formulaire soumis (simulation) :", values);
-    // Future logic to handle form submission will go here.
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    try {
+      const { confirm, ...submissionData } = values;
+      const result = await sendDonationPromise(submissionData);
+
+      if (result.success) {
+        toast({
+          title: "Promesse Envoyée !",
+          description: "Merci pour votre soutien. Votre promesse a bien été enregistrée.",
+        });
+        form.reset();
+        setIsOpen(false);
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (e: any) {
+      console.error(e);
+      toast({
+        variant: "destructive",
+        title: "Oh non ! Une erreur est survenue.",
+        description: e.message || "Impossible d'enregistrer votre promesse. Veuillez réessayer.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
         <Form {...form}>
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-primary text-center">
-              Faire une Promesse de Don
-            </DialogTitle>
-            <FormDescription className="text-center pt-2">
-              Association Cultuelle COMUGUA – Communauté Musulmane de Guadeloupe
-            </FormDescription>
-          </DialogHeader>
-          
-          <Alert className="bg-secondary/50 border-secondary">
-            <Info className="h-4 w-4 text-secondary-foreground" />
-            <AlertDescription className="text-xs text-secondary-foreground">
-              Ce projet, attendu depuis plus de 35 ans, pourra enfin voir le jour grâce à votre mobilisation. Ne promettez que les sommes que vous pourriez donner.
-            </AlertDescription>
-          </Alert>
-
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-1">
+            <DialogHeader>
+              <DialogTitle className="text-2xl text-primary text-center">
+                Faire une Promesse de Don
+              </DialogTitle>
+              <FormDescription className="text-center pt-2">
+                Association Cultuelle COMUGUA – Communauté Musulmane de Guadeloupe
+              </FormDescription>
+            </DialogHeader>
+            
+            <Alert className="bg-secondary/50 border-secondary">
+              <Info className="h-4 w-4 text-secondary-foreground" />
+              <AlertDescription className="text-xs text-secondary-foreground">
+                Ce projet, attendu depuis plus de 35 ans, pourra enfin voir le jour grâce à votre mobilisation. Ne promettez que les sommes que vous pourriez donner.
+              </AlertDescription>
+            </Alert>
+
             <FormField
               control={form.control}
               name="fullName"
@@ -122,7 +150,16 @@ export function DonationForm({ children }: { children: React.ReactNode }) {
                 <FormItem>
                   <FormLabel>Montant de la promesse (€)</FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="ex: 100" {...field} />
+                    <Input
+                      type="number"
+                      placeholder="ex: 100"
+                      {...field}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        field.onChange(value === '' ? undefined : Number(value));
+                      }}
+                      value={field.value ?? ''}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -204,11 +241,20 @@ export function DonationForm({ children }: { children: React.ReactNode }) {
 
             <DialogFooter className="pt-4">
                <DialogClose asChild>
-                <Button type="button" variant="secondary">
+                <Button type="button" variant="secondary" disabled={isSubmitting}>
                   Fermer
                 </Button>
               </DialogClose>
-              <Button type="submit" disabled>Soumettre (bientôt)</Button>
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  "Soumettre la promesse"
+                )}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

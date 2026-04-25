@@ -70,16 +70,10 @@ const sendDonationPromiseFlow = ai.defineFlow(
         `,
       };
       
-      // La ligne ci-dessous est toujours en commentaire. 
-      // Décommentez-la quand vous aurez configuré votre fichier .env ou .env.local
-      // await transporter.sendMail(mailOptions);
+      // Envoi réel de l'e-mail.
+      await transporter.sendMail(mailOptions);
 
-      // Log pour simuler l'envoi pendant le développement
-      console.log('--- SIMULATION ENVOI EMAIL ---');
-      console.log('De:', mailOptions.from);
-      console.log('À:', mailOptions.to);
-      console.log('Sujet:', mailOptions.subject);
-      console.log('Email envoyé (simulation). Pour un envoi réel, configurez vos variables d\'environnement et décommentez le code.');
+      console.log('E-mail de promesse de don envoyé avec succès à :', mailOptions.to);
 
       return { success: true, message: 'Votre promesse de don a été enregistrée avec succès.' };
 

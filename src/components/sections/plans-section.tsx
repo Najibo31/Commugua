@@ -1,17 +1,16 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { LayoutGrid, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { mosquePlans } from '@/lib/plans-data';
 
 interface PlansSectionProps {
   id: string;
 }
 
 export function PlansSection({ id }: PlansSectionProps) {
-  const previewPlan = mosquePlans[0]; // Use the first plan as a preview
+  const exteriorImageUrl = "https://i.postimg.cc/0yYhgcTT/Whats-App-Image-2026-04-23-at-10-45-11.jpg";
 
   return (
     <section id={id} className="py-16 md:py-24 bg-background">
@@ -34,29 +33,27 @@ export function PlansSection({ id }: PlansSectionProps) {
           </div>
           
           <div className="w-full">
-            {previewPlan && (
-              <Card className="shadow-xl hover:shadow-2xl transition-shadow overflow-hidden rounded-lg">
-                <Link href="/plans" aria-label="Voir les plans de la mosquée">
-                  <CardContent className="p-0">
-                    <div className="relative aspect-video">
-                      <Image
-                        src={previewPlan.src}
-                        alt={previewPlan.alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        data-ai-hint={previewPlan.aiHint}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <h3 className="text-lg font-bold">Vue d'ensemble du projet</h3>
-                        <p className="text-sm">Cliquez pour explorer les plans</p>
-                      </div>
+            <Card className="shadow-xl hover:shadow-2xl transition-shadow overflow-hidden rounded-lg">
+              <Link href="/plans" aria-label="Voir les plans de la mosquée">
+                <CardContent className="p-0">
+                  <div className="relative aspect-video">
+                    <Image
+                      src={exteriorImageUrl}
+                      alt="Vue extérieure du projet de la mosquée El OUMMA"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      data-ai-hint="mosque exterior render"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-lg font-bold">Vue extérieure du projet</h3>
+                      <p className="text-sm">Cliquez pour explorer les plans</p>
                     </div>
-                  </CardContent>
-                </Link>
-              </Card>
-            )}
+                  </div>
+                </CardContent>
+              </Link>
+            </Card>
           </div>
         </div>
       </div>
